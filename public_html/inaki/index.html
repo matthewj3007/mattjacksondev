@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Inaki Azpiazu</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+  <body id="body">
+      <div id="container">
+          <div id="right-box">
+              <div id="header">
+                  <div id="heading_div">
+                    <p>INAKI AZPIAZU</p>
+                  </div>
+              </div>
+              <div id="gallery">
+              </div>
+              
+          </div>
+          <div id="left-box">
+              <div id="menu">
+                  <ul id="menu-list">
+                      <li><a>Prints</a></li>
+                      <li><a>Comics</a></li>
+                      <li><a>Illustrations</a></li>
+                      <li><a href="about.html">About</a></li>
+                      <li><a>Contact</a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      
+  </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script id="layout_script">
+           
+           
+           
+        // set gallery height   
+        function createGallery(imageList) {
+            
+            console.log(imageList);
+        
+            var header_height = document.getElementById("header").clientHeight;
+            var row_height = 450;
+            
+            var num_images = imageList.length;
+            var num_columns = 3;
+            var column_remainder = imageList.length%3;
+            console.log("column remainder: "+column_remainder);
+            var num_rows = ((num_images-(num_images%num_columns))/num_columns) + 1;
+            var gallery_height = num_rows*(row_height+20);
+            
+            console.log("Gallery height: "+gallery_height);
+            console.log("Row height: "+row_height);
+            console.log("num rows: "+num_rows);
+            
+            var gallery = document.getElementById("gallery");
+            gallery.style.height = gallery_height + "px";
+            console.log("gallery height: "+gallery.style.height);
+            console.log("gallery width: "+gallery.style.width);
+            var gallery_client_width = document.getElementById("gallery").clientWidth;
+            console.log("Gallery client width: " + gallery_client_width);
+            
+            
+            var imageCount = 0;
+            for(i = 0; i < num_rows; i++) {
+                
+                var rowDiv = document.createElement("div");
+                rowDiv.style.position = "absolute";
+                rowDiv.style.height = row_height+"px";
+                rowDiv.style.width = "100%";
+                rowDiv.style.top = 100*(i/num_rows) + "%";
+                rowDiv.style.margins = "3%";
+                gallery.appendChild(rowDiv);
+                console.log("row top: "+rowDiv.style.top);
+                
+                var columns = 3;
+                if(i == num_rows-1)
+                    columns = column_remainder;
+                
+                console.log("columns: "+columns);
+                
+                for(j = 0; j < columns; j++) {
+                    var cellDiv = document.createElement("div");
+                    cellDiv.style.position = "absolute";
+                    cellDiv.style.height = "100%";
+                    cellDiv.style.width = 94/3 + "%";
+                    console.log("celldiv width: "+cellDiv.style.width);
+                    cellDiv.style.left = 100*j/num_columns + "%";
+                    
+                    console.log("cell left: "+cellDiv.style.left);
+                    cellDiv.style.borderStyle = "solid";
+                    rowDiv.appendChild(cellDiv);
+                    
+                    var img = document.createElement("img");
+                    img.setAttribute("src", "res/"+imageList[imageCount++]);
+                    cellDiv.appendChild(img);
+                    
+                }
+            }
+            
+            
+        }
+            
+            
+            
+            
+/*               for(i = 0; i < 3; i++) {
+
+                   var row = document.createElement("tr");
+
+                   for(j = 0; j < 3; j++) {
+                       var cell = document.createElement("td");
+                       var cellDiv = document.createElement("div");
+                       cell.appendChild(cellDiv);
+
+                       var img = document.createElement("img");
+                       img.setAttribute("src", )
+                       row.appendChild(cell);
+                   }
+
+                   table.appendChild(row);
+               }
+
+        }*/
+        // get images from server
+           var imageList = new Map();
+           try {
+               imageList = jQuery.ajax({
+                   url: 'init.php',
+                   type: 'POST',
+                   success: function(response) {
+                       console.log(response);
+                       createGallery(Object.values(response));
+                   },
+                   error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                        alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+                    },
+                   dataType: 'json'
+               }); 
+           } catch (err) {
+               console.log(err.message);
+           }
+           
+         
+      </script>   
+</html>
