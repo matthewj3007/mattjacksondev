@@ -1,0 +1,82 @@
+h1 {
+    font-family: 'Slabo 27px', serif;
+    font-size: 80px;
+    margin: 0;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+
+p, h6 {
+    font-family: 'Slabo 27px', serif;
+    font-size: 35px;
+    margin: 5px;
+    color: black;
+}
+h6 {
+    font-weight: bold;
+    font-style: oblique;
+}
+
+a, button {
+    font-family: 'Slabo 27px', serif;
+    font-size: 35px;
+    text-decoration: none;
+    color: black;
+}
+a:visited: {}
+a:hover {
+    color: grey;
+    cursor: crosshair;
+}
+
+button {
+    border: none;
+    background-color: white;
+}
+button:hover {
+    color: grey;
+    cursor: crosshair;
+}
+
+body {
+    background-color:white;
+    height: 1000px;
+    
+}
+
+#container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    
+}
+
+#top_bar {
+    position: absolute;
+    height: 100px;
+    width: 100%;
+    top: 0%;
+    border-bottom: solid;
+    border-bottom-color: black;
+}
+
+#middle_left {
+    position: absolute;
+    height: 900px;
+    width: 20%;
+    left: 0%;
+    top: 120px;
+}
+#mddle_left > * {
+    position: absolute;
+    left: 30px;
+}
+
+#middle_right {
+    position: absolute;
+    height: 900px;
+    width: 80%;
+    left: 20%;
+    top: 100px;
+}
