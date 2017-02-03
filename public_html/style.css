@@ -16,27 +16,35 @@ p, h6 {
 h6 {
     font-weight: bold;
     font-style: oblique;
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    left: inherit;
+}
+li {
+    left: 15px;
 }
 
 a, button {
     font-family: 'Slabo 27px', serif;
     font-size: 35px;
     text-decoration: none;
+    border: none;
     color: black;
+    float: top;
 }
 a:visited: {}
-a:hover {
+a:hover,button:hover {
     color: grey;
     cursor: crosshair;
 }
 
 button {
-    border: none;
     background-color: white;
-}
-button:hover {
-    color: grey;
-    cursor: crosshair;
 }
 
 body {
@@ -68,10 +76,11 @@ body {
     left: 0%;
     top: 120px;
 }
-#mddle_left > * {
+#middle_left_menu {
     position: absolute;
-    left: 30px;
+    left: 10px;
 }
+
 
 #middle_right {
     position: absolute;
