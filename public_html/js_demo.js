@@ -1,12 +1,12 @@
 function createMatrixView(div_id) {
-    
+    Console.log("Creating matrix view");
     var table_div = document.getElementById(div_id);
     
-    if(window.sessionStorage.getItem("MATRIX_CREATED") == 'true') {
+/*    if(window.sessionStorage.getItem("MATRIX_CREATED") == 'true') {
         table_div.innerHTML = '';
         window.sessionStorage.setItem("MATRIX_CREATED",'false');
         return;
-    } 
+    } */
     
     var table_div_height = table_div.clientHeight;
     var table_div_width = table_div.clientWidth;
@@ -42,11 +42,9 @@ function createMatrixView(div_id) {
         }
     }
     
-    window.sessionStorage.setItem("MATRIX_CREATED", 'true');
+   // window.sessionStorage.setItem("MATRIX_CREATED", 'true');
 }
 
 function js_demo() {
-    for(i = 0; i < 10; i++) {
-        createMatrixView("middle_right");
-    }
+    createMatrixView("middle_right");
 }

@@ -1,31 +1,29 @@
 html, body {
     position: absolute;
-    height: 1500px;
     width: 100%;
     padding: 0;
     margin: 0;
-    background-color: darkseagreen;
+    background-color: white;
+    font-family: 'Inconsolata', monospace;
 }
 
 h1 {
-    font-family: "Arial", Helvetica, sans-serif;
     font-size: 100px;
-    
 }
-
-img {
-    display: block;
-    max-width: 100%;
-    max-height: 100%;
-}
-
 
 li {
-    font: serif;
     font-size: 20px;
-    margin: 5px;
-    color: #003D1A;
     list-style-type: none;
+}
+button, a {
+    text-decoration: none;
+    border: none;
+    background-color: white;
+    padding: 2px;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: normal;
+    color: black;
 }
 
 #menu-list {
@@ -54,7 +52,6 @@ li {
     height: 100%;
     
     visibility: visible;
-    background-color: #79B694;
 }
 
 #right-box {
@@ -64,46 +61,15 @@ li {
     margin: 0;
     padding: 0;
     
-    background-color: yellow;
     visibility: visible;
     
-}
-
-#header {
-    position: absolute;
-
-    height: 150px;
-    width: 100%;
-    
-    background-color: #4C976D;
-    visibility: visible;
-}
-
-#header p {
-    position: absolute;
-    top: 8px;
-    bottom: 8px;
-    left: 15px;
-    right: 8px;
-    margin: 0;
-    font-size: 110px;
-    color: #003D1A;
-    visibility: visible;
 }
 
 #gallery {
-    position: absolute;
-    top: 150px;
-    
+    position: absolute;    
     width: 100%;
-    
-    background-color: #28794C;
     visibility: visible;
 }
-
-
-
-
 
 #menu {
     position: absolute;
@@ -112,7 +78,6 @@ li {
     left: 8px;
     right: 8px;
     
-    background-color: #4C976D;
     visibility: visible;
 }
 
