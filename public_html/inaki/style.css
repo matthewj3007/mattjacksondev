@@ -25,6 +25,9 @@ button, a {
     font-weight: normal;
     color: black;
 }
+button:hover {
+    color: grey;
+}
 
 #menu-list {
     position: absolute;
